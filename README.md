@@ -194,7 +194,7 @@ Special thanks to contributors:
 ---
 
 ## License
-This project is licensed under the MIT License. See [LICENSE.txt](LICENSE.txt) for details.
+This project is licensed under the Apache 2.0 License. See [LICENSE.txt](LICENSE.txt) for details.
 
 ---
 
