@@ -157,7 +157,7 @@ Refer to **Supplemental Table S.1** for detailed imaging protocol parameters.
 ## Example Outputs
 Below is an example segmentation output overlaying the binary masks on a CT slice:
 
-![Example Segmentation](example_segmentation.png)
+![Example Segmentation](images/3D_DL_muscle_model_output.JPG)
 
 ---
 
