@@ -11,10 +11,11 @@ This repository provides the code, pre-trained model, and example training data 
 3. [Input Data Requirements](#input-data-requirements)  
 4. [Model Details](#model-details)  
 5. [Example Outputs](#example-outputs)  
-6. [Citation](#citation)  
-7. [Acknowledgements](#acknowledgements)  
-8. [License](#license)  
-9. [Contact](#contact)  
+6. [Anatomical Structure Table](#anatomical-structure-table)  
+7. [Citation](#citation)  
+8. [Acknowledgements](#acknowledgements)  
+9. [License](#license)  
+10. [Contact](#contact)  
 
 ---
 
@@ -80,7 +81,7 @@ This project can be run in two ways:
 
 3. **Load the Pre-trained Model**:
 
-   - Download the model weights:\
+   - Download the model weights:  
      [Pre-trained Model - nnUNetTrainer\_2000epochs\_NoMirroring\_\_nnUNetPlans\_\_2d.zip](<Link to release>)
    - Extract the model files and configure them in the Slicer nnU-Net module.
 
@@ -100,7 +101,7 @@ This project can be run in two ways:
    cd dl-muscle-segmentation
    ```
 
-2. **Install nnU-Net**:\
+2. **Install nnU-Net**:  
    Follow the official installation guide:
 
    ```bash
@@ -109,7 +110,7 @@ This project can be run in two ways:
 
 3. **Set Up the Pre-trained Model**:
 
-   - Download the model weights:\
+   - Download the model weights:  
      [Pre-trained Model - nnUNetTrainer\_2000epochs\_NoMirroring\_\_nnUNetPlans\_\_2d.zip](<Link to release>)
    - Extract the files:
      ```bash
@@ -117,14 +118,14 @@ This project can be run in two ways:
      unzip nnUNetTrainer_2000epochs_NoMirroring__nnUNetPlans__2d.zip -d nnUNet_pretrained
      ```
 
-4. **Prepare Input Data**:\
+4. **Prepare Input Data**:  
    If your CT data is in **DICOM** format, convert it to NIfTI using `dcm2niix`:
 
    ```bash
    dcm2niix -o /path/to/output /path/to/input_dicom
    ```
 
-5. **Run Inference**:\
+5. **Run Inference**:  
    Perform segmentation using the following command:
 
    ```bash
@@ -158,6 +159,38 @@ Refer to **Supplemental Table S.1** for detailed imaging protocol parameters.
 Below is an example segmentation output overlaying the binary masks on a CT slice:
 
 ![Example Segmentation](images/3D_DL_muscle_model_output.JPG)
+
+---
+
+## Anatomical Structure Table
+
+| Anatomical Structure | Side  | Vertebral Levels |
+|-----------------------|-------|------------------|
+| Pectoralis Major      | Right | T4 - T9          |
+| Pectoralis Major      | Left  | T4 - T9          |
+| Rectus Abdominis      | Right | T10 - L5         |
+| Rectus Abdominis      | Left  | T10 - L5         |
+| Serratus Anterior     | Right | T4 - T11         |
+| Serratus Anterior     | Left  | T4 - T11         |
+| Latissimus Dorsi      | Right | T4 - L3          |
+| Latissimus Dorsi      | Left  | T4 - L3          |
+| Trapezius             | Right | T4 - T11         |
+| Trapezius             | Left  | T4 - T11         |
+| External Oblique      | Right | T10 - L5         |
+| External Oblique      | Left  | T10 - L5         |
+| Internal Oblique      | Right | L2 - L5          |
+| Internal Oblique      | Left  | L2 - L5          |
+| Erector Spinae        | Right | T4 - L5          |
+| Erector Spinae        | Left  | T4 - L5          |
+| Transversospinalis    | Right | T4 - L5          |
+| Transversospinalis    | Left  | T4 - L5          |
+| Psoas Major           | Right | L1 - L5          |
+| Psoas Major           | Left  | L1 - L5          |
+| Quadratus Lumborum    | Right | L1 - L4          |
+| Quadratus Lumborum    | Left  | L1 - L4          |
+
+### Remark:
+Please note that the vertebral segmentations (#28 and higher) depending on the vertebral level present, should not be used for model creations. We have a separate accurate spine vertebral segmenter for cancer spines, or please use TotalSegmentator to segment non-cancer vertebrae ([TotalSegmentator Repository](https://github.com/wasserth/TotalSegmentator)).
 
 ---
 
@@ -201,5 +234,5 @@ This project is licensed under the Apache 2.0 License. See [LICENSE.txt](LICENSE
 ## Contact
 For questions, please contact:
 - **Ron N. Alkalay**  
-  Beth Israel Deaconess Medical Center, Harvard Medical School
+  Beth Israel Deaconess Medical Center, Harvard Medical School  
   Email: [rn_alkalay@bidmc.harvard.edu](mailto:rn_alkalay@bidmc.harvard.edu)
