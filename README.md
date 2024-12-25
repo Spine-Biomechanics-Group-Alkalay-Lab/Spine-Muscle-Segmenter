@@ -24,9 +24,8 @@ This repository provides the code, pre-trained model, and example training data 
 This project automates the segmentation of major spinal muscles from thoracic and lumbar CT images using the **nnU-Net framework**. Ground-truth muscle annotations were generated following established manual segmentation protocols.
 
 ### Key Features
-- **Input**: Clinical thoracic and lumbar CT scans with two supported fields of view (FOV):  
+- **Input**: Clinical thoracic and lumbar CT scans with the following field of view (FOV):  
   - **Skin-to-skin FOV**  
-  - **16cm FOV**  
 - **Output**: Binary segmentation masks for major spinal muscles, including:  
   - Multifidus  
   - Erector Spinae  
@@ -38,9 +37,7 @@ This project automates the segmentation of major spinal muscles from thoracic an
 This repository includes:
 1. **Pre-trained Model**:  
    `nnUNetTrainer_2000epochs_NoMirroring__nnUNetPlans__2d.zip` (2.5GB)  
-2. **Example Training Data**:  
-   `nnmusc-2023-08-22.tar.gz` (8.5GB)  
-3. **Instructions**: Detailed guidance for reproducing segmentation results.
+2. **Instructions**: Detailed guidance for reproducing segmentation results.
 
 ### Applications
 The project supports:  
@@ -140,8 +137,8 @@ This project can be run in two ways:
 ## Input Data Requirements
 - **CT Scans**:
   - Slice thickness: 0.5mm or 1.25mm
-  - Pixel size: 0.31mm x 0.31mm (FOV A) or 0.70-0.98mm (FOV B)
-  - Field of View (FOV): Skin-to-skin or 16cm
+  - Pixel size: 0.70-0.98mm
+  - Field of View (FOV): Skin-to-skin
 
 Refer to **Supplemental Table S.1** for detailed imaging protocol parameters.
 
@@ -216,13 +213,13 @@ For now, cite this repository:
 
 ## Acknowledgements
 This work was supported by:
-- **NIH Grant Numbers**: R01 (Alkalay and Anderson)
-- **Neuroimage Analysis Center**: P41 EB015902
+- **National Institute of Arthritis and Musculoskeletal and Skin Diseases**: Research Project Grants (AR055582, R56AR075964, and AR075964) for R. Alkalay and D. Anderson.
 
 Special thanks to contributors:
 - Ron N. Alkalay, Beth Israel Deaconess Medical Center, Harvard Medical School
 - Dennis Anderson, Beth Israel Deaconess Medical Center, Harvard Medical School
-- Csaba Pintér, Steve Pieper, Vy Hong
+- Steve Pieper, Isomics, Inc., Cambridge, MA 02138
+- Csaba Pinter, Ebatinca SL, Las Palmas de Gran Canaria, Spain
 
 ---
 
