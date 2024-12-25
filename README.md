@@ -54,16 +54,6 @@ This project can be run in two ways:
 1. **Through the 3D Slicer nnU-Net Extension** (recommended for ease of use)
 2. **Locally using nnUNet commands** (for full flexibility and automation)
 
-### Prerequisites
-
-- **Python** (3.8 or later)
-- **3D Slicer** ([Download here](https://www.slicer.org/))
-- **nnU-Net** framework ([Installation Guide](https://github.com/MIC-DKFZ/nnUNet))
-- **Required Python packages**:
-  ```bash
-  pip install numpy SimpleITK torch torchvision
-  ```
-
 ---
 
 ### Option 1: 3D Slicer nnU-Net Extension
@@ -85,62 +75,41 @@ This project can be run in two ways:
 4. **Run the Segmentation**:
 
    - Prepare your input CT data in **DICOM** or **NIfTI** format.
-   - Use the nnU-Net module in 3D Slicer to perform the segmentation and generate output masks.
+   - Use the nnU-Net module in 3D Slicer to perform the segmentation and specify the pre-trained model to use for predictions.
 
 ---
-
 ### Option 2: Run Locally Using nnUNet Commands
 
-1. **Clone the Repository**:
+#### Prerequisites
 
+1. Install Python (3.8 or later).
+2. Install the nnU-Net framework and required dependencies:
    ```bash
-   git clone https://github.com/nilsrehtanz/dl-muscle-segmentation.git
-   cd dl-muscle-segmentation
+   pip install nnunet numpy SimpleITK torch torchvision
+   ```
+3. Download the pre-trained model weights from the provided link and extract them.
+
+#### Running nnU-Net
+
+1. Set the path to your nnU-Net results directory:
+   ```bash
+   export nnUNet_results="/path/to/nnUNet_results"
    ```
 
-2. **Install nnU-Net**:  
-   Follow the official installation guide:
+2. Ensure your input NIfTI files are named correctly (ending with `_0000.nii.gz`).
 
+3. Run the segmentation command:
    ```bash
-   pip install nnunet
+   nnUNetv2_predict -i "/path/to/input" -o "/path/to/output" -d 001 -c 3d_fullres
    ```
+   - Replace `/path/to/input` and `/path/to/output` with your actual input and output directories.
+   - Replace `001` with the appropriate dataset ID for your project.
 
-3. **Set Up the Pre-trained Model**:
-
-   - Download the model weights:  
-     [Pre-trained Model - nnUNetTrainer\_2000epochs\_NoMirroring\_\_nnUNetPlans\_\_2d.zip](<Link to release>)
-   - Extract the files:
-     ```bash
-     mkdir -p nnUNet_pretrained
-     unzip nnUNetTrainer_2000epochs_NoMirroring__nnUNetPlans__2d.zip -d nnUNet_pretrained
-     ```
-
-4. **Prepare Input Data**:  
-   If your CT data is in **DICOM** format, convert it to NIfTI using `dcm2niix`:
-
-   ```bash
-   dcm2niix -o /path/to/output /path/to/input_dicom
-   ```
-
-5. **Run Inference**:  
-   Perform segmentation using the following command:
-
-   ```bash
-   nnUNet_predict -i /path/to/input_nifti \
-                  -o /path/to/output_masks
-   ```
-
-   - Replace `/path/to/input_nifti` and `/path/to/output_masks` with your paths.
 
 ---
 
 ## Input Data Requirements
-- **CT Scans**:
-  - Slice thickness: 0.5mm or 1.25mm
-  - Pixel size: 0.70-0.98mm
-  - Field of View (FOV): Skin-to-skin
-
-Refer to **Supplemental Table S.1** for detailed imaging protocol parameters.
+The protocols for the data used for training and testing are discussed in the corresponding section of the paper. Refer to the publication for detailed information. for detailed imaging protocol parameters.
 
 ---
 
@@ -161,30 +130,30 @@ Below is an example segmentation output overlaying the binary masks on a CT slic
 
 ## Anatomical Structure Table
 
-| Anatomical Structure | Side  | Vertebral Levels |
-|-----------------------|-------|------------------|
-| Pectoralis Major      | Right | T4 - T9          |
-| Pectoralis Major      | Left  | T4 - T9          |
-| Rectus Abdominis      | Right | T10 - L5         |
-| Rectus Abdominis      | Left  | T10 - L5         |
-| Serratus Anterior     | Right | T4 - T11         |
-| Serratus Anterior     | Left  | T4 - T11         |
-| Latissimus Dorsi      | Right | T4 - L3          |
-| Latissimus Dorsi      | Left  | T4 - L3          |
-| Trapezius             | Right | T4 - T11         |
-| Trapezius             | Left  | T4 - T11         |
-| External Oblique      | Right | T10 - L5         |
-| External Oblique      | Left  | T10 - L5         |
-| Internal Oblique      | Right | L2 - L5          |
-| Internal Oblique      | Left  | L2 - L5          |
-| Erector Spinae        | Right | T4 - L5          |
-| Erector Spinae        | Left  | T4 - L5          |
-| Transversospinalis    | Right | T4 - L5          |
-| Transversospinalis    | Left  | T4 - L5          |
-| Psoas Major           | Right | L1 - L5          |
-| Psoas Major           | Left  | L1 - L5          |
-| Quadratus Lumborum    | Right | L1 - L4          |
-| Quadratus Lumborum    | Left  | L1 - L4          |
+| Anatomical Structure      | Side   | Vertebral Levels | nnUNet Index |
+|---------------------------|--------|------------------|--------------|
+| Pectoralis Major         | Right  | T4 - T9          | 1           |
+| Pectoralis Major         | Left   | T4 - T9          | 2           |
+| Rectus Abdominis         | Right  | T10 - L5         | 3           |
+| Rectus Abdominis         | Left   | T10 - L5         | 4           |
+| Serratus Anterior        | Right  | T4 - T11         | 5           |
+| Serratus Anterior        | Left   | T4 - T11         | 6           |
+| Latissimus Dorsi         | Right  | T4 - L3          | 7           |
+| Latissimus Dorsi         | Left   | T4 - L3          | 8           |
+| Trapezius                | Right  | T4 - T11         | 9           |
+| Trapezius                | Left   | T4 - T11         | 10           |
+| External Oblique         | Right  | T10 - L5         | 11           |
+| External Oblique         | Left   | T10 - L5         | 12           |
+| Internal Oblique         | Right  | L2 - L5          | 13           |
+| Internal Oblique         | Left   | L2 - L5          | 14           |
+| Erector Spinae           | Right  | T4 - L5          | 15           |
+| Erector Spinae           | Left   | T4 - L5          | 16           |
+| Transversospinalis       | Right  | T4 - L5          | 17           |
+| Transversospinalis       | Left   | T4 - L5          | 18           |
+| Psoas Major              | Right  | L1 - L5          | 21           |
+| Psoas Major              | Left   | L1 - L5          | 22           |
+| Quadratus Lumborum       | Right  | L1 - L4          | 23           |
+| Quadratus Lumborum       | Left   | L1 - L4          | 24           |
 
 ### Remark:
 Please note that the vertebral segmentations (#28 and higher) depending on the vertebral level present, should not be used for model creations. We have a separate accurate spine vertebral segmenter for cancer spines, or please use TotalSegmentator to segment non-cancer vertebrae ([TotalSegmentator Repository](https://github.com/wasserth/TotalSegmentator)).
@@ -205,7 +174,7 @@ For now, cite this repository:
   title = {3D Muscle Segmentation using nnU-Net},
   year = {2024},
   howpublished = {GitHub repository},
-  url = {https://github.com/nilsrehtanz/dl-muscle-segmentation}
+  url = {https://github.com/Spine-Biomechanics-Group-Alkalay-Lab/Spine-Muscle-Segmenter}
 }
 ```
 
@@ -220,6 +189,8 @@ Special thanks to contributors:
 - Dennis Anderson, Beth Israel Deaconess Medical Center, Harvard Medical School
 - Steve Pieper, Isomics, Inc., Cambridge, MA 02138
 - Csaba Pinter, Ebatinca SL, Las Palmas de Gran Canaria, Spain
+- Vy Hong, Technical University of Munich, Beth Israel Deaconess Medical Center, Harvard Medical School
+- Nils Rehtanz, Technical University of Munich, Beth Israel Deaconess Medical Center, Harvard Medical School
 
 ---
 
