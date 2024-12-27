@@ -49,36 +49,11 @@ The project supports:
 
 ## Installation
 
-This project can be run in two ways:
-
-1. **Through the 3D Slicer nnU-Net Extension** (recommended for ease of use)
-2. **Locally using nnUNet commands** (for full flexibility and automation)
+This project can be run locally using nnU-Net commands for full flexibility and automation.
 
 ---
 
-### Option 1: 3D Slicer nnU-Net Extension
-
-1. **Install 3D Slicer**:
-
-   - Download and install from the official site: [3D Slicer Download](https://www.slicer.org/)
-
-2. **Install the nnU-Net Extension**:
-
-   - Follow the setup guide: [SlicerNNUnet Extension](https://github.com/KitwareMedical/SlicerNNUnet)
-
-3. **Load the Pre-trained Model**:
-
-   - Download the model weights:  
-     [Pre-trained Model - nnUNetTrainer\_2000epochs\_NoMirroring\_\_nnUNetPlans\_\_2d.zip](<Link to release>)
-   - Extract the model files and configure them in the Slicer nnU-Net module.
-
-4. **Run the Segmentation**:
-
-   - Prepare your input CT data in **DICOM** or **NIfTI** format.
-   - Use the nnU-Net module in 3D Slicer to perform the segmentation and specify the pre-trained model to use for predictions.
-
----
-### Option 2: Run Locally Using nnUNet Commands
+### Run Locally Using nnUNet Commands
 
 #### Prerequisites
 
@@ -96,7 +71,7 @@ This project can be run in two ways:
    export nnUNet_results="/path/to/nnUNet_results"
    ```
 
-2. Ensure your input NIfTI files are named correctly (ending with `_0000.nii.gz`).
+2. Ensure your input .nrrd files are named correctly (ending with `_0000.nrrd`) before processing.
 
 3. Run the segmentation command:
    ```bash
@@ -105,11 +80,10 @@ This project can be run in two ways:
    - Replace `/path/to/input` and `/path/to/output` with your actual input and output directories.
    - Replace `001` with the appropriate dataset ID for your project.
 
-
 ---
 
 ## Input Data Requirements
-The protocols for the data used for training and testing are discussed in the corresponding section of the paper. Refer to the publication for detailed information. for detailed imaging protocol parameters.
+The protocols for the data used for training and testing are discussed in the corresponding section of the paper. Refer to the publication for detailed information on imaging protocol parameters.
 
 ---
 
@@ -141,19 +115,19 @@ Below is an example segmentation output overlaying the binary masks on a CT slic
 | Latissimus Dorsi         | Right  | T4 - L3          | 7           |
 | Latissimus Dorsi         | Left   | T4 - L3          | 8           |
 | Trapezius                | Right  | T4 - T11         | 9           |
-| Trapezius                | Left   | T4 - T11         | 10           |
-| External Oblique         | Right  | T10 - L5         | 11           |
-| External Oblique         | Left   | T10 - L5         | 12           |
-| Internal Oblique         | Right  | L2 - L5          | 13           |
-| Internal Oblique         | Left   | L2 - L5          | 14           |
-| Erector Spinae           | Right  | T4 - L5          | 15           |
-| Erector Spinae           | Left   | T4 - L5          | 16           |
-| Transversospinalis       | Right  | T4 - L5          | 17           |
-| Transversospinalis       | Left   | T4 - L5          | 18           |
-| Psoas Major              | Right  | L1 - L5          | 21           |
-| Psoas Major              | Left   | L1 - L5          | 22           |
-| Quadratus Lumborum       | Right  | L1 - L4          | 23           |
-| Quadratus Lumborum       | Left   | L1 - L4          | 24           |
+| Trapezius                | Left   | T4 - T11         | 10          |
+| External Oblique         | Right  | T10 - L5         | 11          |
+| External Oblique         | Left   | T10 - L5         | 12          |
+| Internal Oblique         | Right  | L2 - L5          | 13          |
+| Internal Oblique         | Left   | L2 - L5          | 14          |
+| Erector Spinae           | Right  | T4 - L5          | 15          |
+| Erector Spinae           | Left   | T4 - L5          | 16          |
+| Transversospinalis       | Right  | T4 - L5          | 17          |
+| Transversospinalis       | Left   | T4 - L5          | 18          |
+| Psoas Major              | Right  | L1 - L5          | 21          |
+| Psoas Major              | Left   | L1 - L5          | 22          |
+| Quadratus Lumborum       | Right  | L1 - L4          | 23          |
+| Quadratus Lumborum       | Left   | L1 - L4          | 24          |
 
 ### Remark:
 Please note that the vertebral segmentations (#28 and higher) depending on the vertebral level present, should not be used for model creations. We have a separate accurate spine vertebral segmenter for cancer spines, or please use TotalSegmentator to segment non-cancer vertebrae ([TotalSegmentator Repository](https://github.com/wasserth/TotalSegmentator)).
@@ -163,8 +137,8 @@ Please note that the vertebral segmentations (#28 and higher) depending on the v
 ## Citation
 If you use this repository in your work, please cite:
 
-> **3D Muscle Segmentation using nnU-Net**
-> Ron N. Alkalay et al.
+> **3D Muscle Segmentation using nnU-Net**  
+> Ron N. Alkalay et al.  
 > [Arxiv Link!!!!]
 
 For now, cite this repository:
@@ -204,3 +178,4 @@ For questions, please contact:
 - **Ron N. Alkalay**  
   Beth Israel Deaconess Medical Center, Harvard Medical School  
   Email: [rn_alkalay@bidmc.harvard.edu](mailto:rn_alkalay@bidmc.harvard.edu)
+
