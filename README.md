@@ -159,13 +159,13 @@ This work was supported by:
 - **National Institute of Arthritis and Musculoskeletal and Skin Diseases**: Research Project Grants (AR055582, R56AR075964, and AR075964) for R. Alkalay and D. Anderson.
 
 Special thanks to contributors:
-- Ron N. Alkalay, Beth Israel Deaconess Medical Center, Harvard Medical School
-- Dennis Anderson, Beth Israel Deaconess Medical Center, Harvard Medical School
+- Ron N. Alkalay, Beth Israel Deaconess Medical Center, Harvard Medical School, Boston, MA
+- Dennis Anderson, Beth Israel Deaconess Medical Center, Harvard Medical School, Boston, MA
+- Joanna James, Beth Israel Deaconess Medical Center, Harvard Medical School, Boston, MA
 - Steve Pieper, Isomics, Inc., Cambridge, MA 02138
 - Csaba Pinter, Ebatinca SL, Las Palmas de Gran Canaria, Spain
-- Vy Hong, Technical University of Munich, Beth Israel Deaconess Medical Center, Harvard Medical School
-- Nils Rehtanz, Technical University of Munich, Beth Israel Deaconess Medical Center, Harvard Medical School
-
+- Vy Hong, Technical University of Munich
+- Nils Rehtanz, Technical University of Munich
 ---
 
 ## License
