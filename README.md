@@ -36,7 +36,7 @@ This project automates the segmentation of major spinal muscles from thoracic an
 ### Repository Contents
 This repository includes:
 1. **Pre-trained Model**:  
-   `nnUNetTrainer_2000epochs_NoMirroring__nnUNetPlans__2d.zip` (2.5GB)  
+   Split zip files of model weights in `models/v.0.0.1/`.  
 2. **Instructions**: Detailed guidance for reproducing segmentation results.
 
 ### Applications
@@ -62,7 +62,14 @@ This project can be run locally using nnU-Net commands for full flexibility and 
    ```bash
    pip install nnunet numpy SimpleITK torch torchvision
    ```
-3. Download the pre-trained model weights from the provided link and extract them.
+3. Run the `download_model.py` script from the repository root:
+   ```bash
+   python download_model.py
+   ```
+4. Extract the combined zip file:
+   ```bash
+   unzip models/v.0.0.1/nnU-Net_results.zip -d /path/to/nnUNet_results
+   ```
 
 #### Running nnU-Net
 
@@ -77,7 +84,7 @@ This project can be run locally using nnU-Net commands for full flexibility and 
    ```bash
    nnUNetv2_predict -i "/path/to/input" -o "/path/to/output" -d 001 -c 3d_fullres
    ```
-   - Replace `/path/to/input` and `/path/to/output` with your actual input and output directories.
+   - Replace `/path/to/input` and `/path/to/output` with your actual input and output directories (folders).
    - Replace `001` with the appropriate dataset ID for your project.
 
 ---
@@ -99,6 +106,9 @@ The protocols for the data used for training and testing are discussed in the co
 Below is an example segmentation output overlaying the binary masks on a CT slice:
 
 ![Example Segmentation](images/3D_DL_muscle_model_output.png)
+
+This image can be reproduced in approximately **1 minute and 20 seconds** using an **NVIDIA RTX A6000 (48 GB VRAM)** GPU on a system with an **AMD Ryzen Threadripper PRO 3975WX 32-core processor** and **258 GB of RAM**.
+
 
 ---
 
