@@ -98,7 +98,7 @@ The protocols for the data used for training and testing are discussed in the co
 ## Example Outputs
 Below is an example segmentation output overlaying the binary masks on a CT slice:
 
-![Example Segmentation](images/3D_DL_muscle_model_output.JPG)
+![Example Segmentation](images/3D_DL_muscle_model_output.png)
 
 ---
 
