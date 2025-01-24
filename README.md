@@ -149,16 +149,20 @@ If you use this repository in your work, please cite:
 
 > **3D Muscle Segmentation using nnU-Net**  
 > Ron N. Alkalay et al.  
-> [Arxiv Link!!!!]
+> https://www.medrxiv.org/content/10.1101/2025.01.13.25319967v1
 
 For now, cite this repository:
 ```
-@misc{3dmuscle_nnUNet,
-  author = {Alkalay, Ron N.},
-  title = {3D Muscle Segmentation using nnU-Net},
-  year = {2024},
-  howpublished = {GitHub repository},
-  url = {https://github.com/Spine-Biomechanics-Group-Alkalay-Lab/Spine-Muscle-Segmenter}
+@article {Hong2025.01.13.25319967,
+	author = {Hong, Vy and Pieper, Steve and James, Joanna and Anderson, Dennis E and Pinter, Csaba and Chang, Yi Shuen and Aslan, Bulent and Kozono, David and Doyle, Patrick F and Caplan, Sarah and Kang, Heejoo and Balboni, Tracy and Spektor, Alexander and Huynh, Mai Anh and Keko, Mario and Kikinis, Ron and Hackney, David B and Alkalay, Ron N},
+	title = {Automated Segmentation of Trunk Musculature with a Deep CNN Trained from Sparse Annotations in Radiation Therapy Patients with Metastatic Spine Disease},
+	elocation-id = {2025.01.13.25319967},
+	year = {2025},
+	doi = {10.1101/2025.01.13.25319967},
+	publisher = {Cold Spring Harbor Laboratory Press},
+	URL = {https://www.medrxiv.org/content/early/2025/01/20/2025.01.13.25319967},
+	eprint = {https://www.medrxiv.org/content/early/2025/01/20/2025.01.13.25319967.full.pdf},
+	journal = {medRxiv}
 }
 ```
 
