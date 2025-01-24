@@ -145,11 +145,14 @@ Please note that the vertebral segmentations (#28 and higher) depending on the v
 ---
 
 ## Citation
-If you use this repository in your work, please cite:
 
-> **3D Muscle Segmentation using nnU-Net**  
-> Ron N. Alkalay et al.  
-> https://www.medrxiv.org/content/10.1101/2025.01.13.25319967v1
+If you use this repository, please cite:
+
+**Automated Segmentation of Trunk Musculature with a Deep CNN Trained from Sparse Annotations in Radiation Therapy Patients with Metastatic Spine Disease**  
+*Ron N. Alkalay et al.*  
+[DOI: 10.1101/2025.01.13.25319967](https://www.medrxiv.org/content/10.1101/2025.01.13.25319967v1)
+
+
 
 For now, cite this repository:
 ```
