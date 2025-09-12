@@ -174,6 +174,7 @@ For now, cite this repository:
 ## Acknowledgements
 This work was supported by:
 - **National Institute of Arthritis and Musculoskeletal and Skin Diseases**: Research Project Grants (AR055582, R56AR075964, and AR075964) for R. Alkalay and D. Anderson.
+- **The National Institute of Biomedical Imaging and Bioengineering** Neuroimage Analysis Center (P41 EB015902) for Dr. S. Pieper.
 
 Special thanks to contributors:
 - Ron N. Alkalay, Beth Israel Deaconess Medical Center, Harvard Medical School, Boston, MA
