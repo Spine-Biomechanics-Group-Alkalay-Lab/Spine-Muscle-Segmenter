@@ -1,15 +1,21 @@
 import os
 import requests
+from tqdm import tqdm  # make sure to install: pip install tqdm
 
 def download_file(url, dest):
-    """Download a file from a URL to a local path."""
+    """Download a file from a URL to a local path with a progress bar."""
     if not os.path.exists(dest):
         print(f"Downloading {url} → {dest}")
         r = requests.get(url, stream=True)
         r.raise_for_status()
-        with open(dest, "wb") as f:
-            for chunk in r.iter_content(chunk_size=8192):
+        total_size = int(r.headers.get('content-length', 0))
+        chunk_size = 100000000
+        with open(dest, "wb") as f, tqdm(
+            total=total_size, unit='B', unit_scale=True, desc=os.path.basename(dest)
+        ) as bar:
+            for chunk in r.iter_content(chunk_size=chunk_size):
                 f.write(chunk)
+                bar.update(len(chunk))
         print(f"Finished downloading {dest}")
     else:
         print(f"{dest} already exists, skipping download.")

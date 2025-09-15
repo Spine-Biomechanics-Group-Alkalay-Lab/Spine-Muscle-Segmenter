@@ -66,6 +66,7 @@ This project can be run locally using nnU-Net commands for full flexibility and 
    ```bash
    python download_model.py
    ```
+   The files should automatically be downloaded, if not the weights are saved [here](https://github.com/Spine-Biomechanics-Group-Alkalay-Lab/Spine-Muscle-Segmenter/releases/tag/weight)
 4. Extract the combined zip file:
    ```bash
    unzip models/v.0.0.1/nnU-Net_results.zip -d /path/to/nnUNet_results
