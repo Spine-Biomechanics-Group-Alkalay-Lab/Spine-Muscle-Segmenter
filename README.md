@@ -60,7 +60,7 @@ This project can be run locally using nnU-Net commands for full flexibility and 
 1. Install Python (3.8 or later).
 2. Install the nnU-Net framework and required dependencies:
    ```bash
-   pip install nnunet numpy SimpleITK torch torchvision
+   pip install nnunetv2 numpy SimpleITK torch torchvision
    ```
 3. Run the `download_model.py` script from the repository root:
    ```bash
@@ -85,7 +85,7 @@ This project can be run locally using nnU-Net commands for full flexibility and 
    nnUNetv2_predict -i "/path/to/input" -o "/path/to/output" -d 001 -c 3d_fullres
    ```
    - Replace `/path/to/input` and `/path/to/output` with your actual input and output directories (folders).
-   - Replace `001` with the appropriate dataset ID for your project.
+   - `001` represents the model name for more information look up [nnUnetv2](https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/how_to_use_nnunet.md)
 
 ---
 
